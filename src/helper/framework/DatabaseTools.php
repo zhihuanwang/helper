@@ -23,12 +23,14 @@ class DatabaseTools
         if (0 == count($tableRes)) {
             echo '没有数据表';
         }
-        $databaseString = '';
+        $databaseString = "# $databaseName <font color=#DC143C size=4 >数据库说明</font>\n[TOC]\n";
         foreach ($tableRes as $value) {
 //            $tableName = $value['Tables_in_live_freebd_cn'];
             $tableName = $value['TABLE_NAME'];
             $tableDesc = $value['table_comment'];
-            $tableComm = "### $tableName   $tableDesc \n";
+//            $tableComm = "### $tableName   $\color{#DC143C}{$tableDesc}$ \n";
+            $tableComm = "### $tableName   <font color=#0099ff size=3 >$tableDesc</font> \n";
+//            $tableComm = "### $tableName   $tableDesc \n";
             $tableHeader = "| 列名 | 数据类型 | 长度 | 是否为空 | 默认值 | 备注 |\n";
             $tableString = $tableComm .  $tableHeader . "| ---- | -------- | ---- | -------- | ------ | ---- |\n";
 
