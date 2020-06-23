@@ -21,7 +21,9 @@ class JsonResult
         }
         header('Content-type:text/json');
         header("Access-Control-Allow-Origin: *");
-        echo json_encode($return_array,JSON_UNESCAPED_UNICODE);die;
+        echo str_replace('\u0000', '', json_encode($return_array,JSON_UNESCAPED_UNICODE));
+        die();
+//        echo json_encode($return_array,JSON_UNESCAPED_UNICODE);die;
     }
 
     /**
