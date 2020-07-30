@@ -15,8 +15,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Helper\\Framework\\": "src/Helper/Framework"
-
+            "Helper\\Framework\\": "src/helper/framework",
+            "Helper\\File\\": "src/helper/file",
+            "Helper\\Image\\" : "src/helper/image"
         }
     }
 }
