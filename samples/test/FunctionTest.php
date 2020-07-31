@@ -9,10 +9,14 @@
 namespace Test;
 
 
+use Helper\Framework\Math;
+
 class FunctionTest
 {
     public function index()
     {
-
+        foreach (range(1, 10) as $value) {
+            echo Math::factorial($value) . '<br>';
+        }
     }
 }
