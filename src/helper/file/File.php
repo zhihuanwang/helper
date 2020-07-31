@@ -217,4 +217,25 @@ class File
     {
         return $ext = pathinfo($file->getInfo('name'), PATHINFO_EXTENSION);
     }
+
+    /**
+     * 解压zip包
+     * @param $fileCompletePath 压缩包全路径
+     * @param $targetSavePath 目标保存地址
+     * @return bool
+     */
+    public static function uploadZipFile($fileCompletePath, $targetSavePath)
+    {
+        $zip = new \ZipArchive();
+        if (true === $zip->open($fileCompletePath)) {//中文文件名要使用ANSI编码的文件格式
+            if (!is_dir($targetSavePath)) {
+                mkdir(iconv("UTF-8", "GBK", $targetSavePath), 0755, true);
+            }
+            $zip->extractTo($targetSavePath);
+            $zip->close();
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
