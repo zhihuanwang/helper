@@ -24,4 +24,7 @@ class Math
     {
         return ($number > 1) ? $number * self::factorial($number - 1) : $number;
     }
+    /**
+     * TODO 生成随机数的几种方法
+     */
 }
